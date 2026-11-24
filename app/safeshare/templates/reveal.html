@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Safe Share – odbierz sekret</title>
+  <link rel="icon" href="/static/img/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="apple-touch-icon" href="/static/img/apple-touch-icon.png">
+  <link rel="manifest" href="/static/manifest.json">
+  <meta name="theme-color" content="#1f5fd1">
+  <link rel="stylesheet" href="/static/css/style.css" integrity="{{ sri css/style.css }}">
+</head>
+<body>
+<main class="card">
+  <header>
+    <div class="brand"><img src="/static/img/icon.svg" alt="" width="36" height="36"><h1>Safe Share</h1></div>
+  </header>
+
+  <section id="loading"><p class="muted">Sprawdzam link…</p></section>
+
+  <section id="unavailable" hidden>
+    <img class="hero" src="/static/img/gone.svg" width="360" height="150" alt="">
+    <h2>Sekret niedostępny</h2>
+    <p>Ten sekret nie istnieje, wygasł albo został już odczytany.</p>
+    <p class="muted small">Jeśli nie odczytywałeś go wcześniej, poinformuj nadawcę – ktoś mógł go przechwycić.</p>
+  </section>
+
+  <section id="ready" hidden>
+    <img class="hero" src="/static/img/reveal.svg" width="360" height="150" alt="">
+    <p>Ktoś udostępnił Ci sekret. <strong>Można go wyświetlić tylko raz</strong> – po odczycie zostanie trwale usunięty z serwera.</p>
+    <p class="muted small">Wygasa: <span id="expires-at"></span></p>
+    <div id="pass-box" hidden>
+      <label for="passphrase">Hasło dodatkowe (otrzymane od nadawcy innym kanałem)</label>
+      <input type="password" id="passphrase" autocomplete="off">
+    </div>
+    <button type="button" id="reveal-btn" class="primary">Pokaż sekret</button>
+  </section>
+
+  <section id="retry" hidden>
+    <p class="warn">Sekret został już pobrany i usunięty z serwera, ale hasło dodatkowe jest nieprawidłowe.
+      Spróbuj ponownie – <strong>nie zamykaj ani nie odświeżaj tej strony</strong>, bo stracisz dane.</p>
+    <label for="passphrase-retry">Hasło dodatkowe</label>
+    <input type="password" id="passphrase-retry" autocomplete="off">
+    <button type="button" id="retry-btn" class="primary">Odszyfruj</button>
+  </section>
+
+  <section id="secret" hidden>
+    <h2>Twój sekret</h2>
+    <p class="warn small">Sekret został usunięty z serwera. Zapisz go teraz w bezpiecznym miejscu (np. menedżerze haseł).</p>
+    <div id="secret-text-box" hidden>
+      <textarea id="secret-text" rows="10" readonly spellcheck="false"></textarea>
+      <button type="button" id="copy-btn">Kopiuj</button>
+    </div>
+    <div id="secret-file-box" hidden>
+      <p>Plik: <strong id="file-name"></strong> (<span id="file-size"></span>)</p>
+      <a id="download-link" class="button primary" href="#">Pobierz plik</a>
+    </div>
+  </section>
+
+  <p id="error" class="error" role="alert" hidden></p>
+</main>
+<script src="/static/js/crypto.js" integrity="{{ sri js/crypto.js }}"></script>
+<script src="/static/js/reveal.js" integrity="{{ sri js/reveal.js }}"></script>
+</body>
+</html>

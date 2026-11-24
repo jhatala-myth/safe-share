@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 150" role="img" aria-label="Sekret został już odczytany lub wygasł">
+  <style>
+    .bg{fill:#f1f2f4}.env{fill:#fff;stroke:#cfd4dc}.ash{fill:#a7afbb}.x{stroke:#b3261e}.soft{fill:#e4e7ec}.seam{stroke:#cfd4dc}
+    @media (prefers-color-scheme: dark){
+      .bg{fill:#1d2128}.env{fill:#232a36;stroke:#3a4558}.ash{fill:#5d6676}.x{stroke:#f2827a}.soft{fill:#262c36}.seam{stroke:#3a4558}
+    }
+  </style>
+  <rect class="bg" x="0" y="8" width="360" height="134" rx="18"/>
+  <circle class="soft" cx="180" cy="80" r="56"/>
+  <!-- opened, empty envelope -->
+  <g transform="translate(122 56)">
+    <path class="env" d="M0 10 L58 -26 L116 10 Z" stroke-width="2" stroke-linejoin="round"/>
+    <rect class="env" x="0" y="10" width="116" height="62" rx="9" stroke-width="2"/>
+    <path class="seam" d="M2 14l56 34 56-34" fill="none" stroke-width="2"/>
+  </g>
+  <!-- dissolving particles -->
+  <g class="ash">
+    <rect x="168" y="22" width="7" height="7" rx="1.5" transform="rotate(18 171 25)"/>
+    <rect x="186" y="14" width="5" height="5" rx="1" transform="rotate(-22 188 16)"/>
+    <rect x="200" y="28" width="6" height="6" rx="1.5" transform="rotate(35 203 31)"/>
+    <rect x="156" y="36" width="4" height="4" rx="1"/>
+    <rect x="214" y="12" width="3.5" height="3.5" rx="1"/>
+    <rect x="178" y="4" width="3" height="3" rx=".8" opacity=".6"/>
+  </g>
+  <!-- X badge -->
+  <g transform="translate(246 108)">
+    <circle class="env" r="16" stroke-width="2"/>
+    <path class="x" d="M-6 -6l12 12M6 -6l-12 12" stroke-width="3.5" stroke-linecap="round"/>
+  </g>
+</svg>

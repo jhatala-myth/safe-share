@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 150" role="img" aria-label="Sekret szyfrowany w przeglądarce i zamieniany w jednorazowy link">
+  <style>
+    .bg{fill:#eaf1fd}.card{fill:#fff;stroke:#c9d6ee}.line{fill:#c9d6ee}.dot{fill:#1f5fd1}
+    .acc{fill:#1f5fd1}.accs{stroke:#1f5fd1}.soft{fill:#d6e3fb}.wht{fill:#fff}.txt{fill:#5d6676}
+    .gold{fill:#f2b632}
+    @media (prefers-color-scheme: dark){
+      .bg{fill:#1b2333}.card{fill:#232a36;stroke:#3a4558}.line{fill:#3a4558}.dot{fill:#7ea6f5}
+      .acc{fill:#5b8ff0}.accs{stroke:#5b8ff0}.soft{fill:#2a3650}.wht{fill:#e6e9ee}.txt{fill:#9aa3b2}
+    }
+  </style>
+  <rect class="bg" x="0" y="8" width="360" height="134" rx="18"/>
+  <!-- 1. secret document -->
+  <g transform="translate(24 30)">
+    <rect class="card" x="0" y="0" width="86" height="90" rx="10" stroke-width="2"/>
+    <rect class="line" x="12" y="14" width="44" height="6" rx="3"/>
+    <rect class="line" x="12" y="28" width="62" height="6" rx="3"/>
+    <g class="dot"><circle cx="17" cy="51" r="4"/><circle cx="29" cy="51" r="4"/><circle cx="41" cy="51" r="4"/><circle cx="53" cy="51" r="4"/><circle cx="65" cy="51" r="4"/></g>
+    <rect class="line" x="12" y="66" width="36" height="6" rx="3"/>
+    <!-- key -->
+    <g transform="translate(58 62) rotate(-30)">
+      <circle class="gold" cx="0" cy="0" r="9"/><circle class="card" cx="0" cy="0" r="3.5" stroke-width="0"/>
+      <rect class="gold" x="7" y="-2.5" width="20" height="5" rx="2"/><rect class="gold" x="20" y="0" width="4" height="7" rx="1"/>
+    </g>
+  </g>
+  <!-- arrow 1 -->
+  <path class="accs" d="M122 75h24" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 7" fill="none"/>
+  <path class="acc" d="M146 68l9 7-9 7z"/>
+  <!-- 2. lock in browser -->
+  <g transform="translate(166 26)">
+    <circle class="soft" cx="34" cy="49" r="44"/>
+    <path class="accs" d="M22 46v-9a12 12 0 0 1 24 0v9" fill="none" stroke-width="6" stroke-linecap="round"/>
+    <rect class="acc" x="13" y="44" width="42" height="32" rx="7"/>
+    <circle class="wht" cx="34" cy="57" r="4.5"/><path class="wht" d="M32 59h4l1.2 8h-6.4z"/>
+    <text class="txt" x="34" y="104" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="600">AES-256</text>
+  </g>
+  <!-- arrow 2 -->
+  <path class="accs" d="M248 75h20" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 7" fill="none"/>
+  <path class="acc" d="M268 68l9 7-9 7z"/>
+  <!-- 3. one-time link with timer -->
+  <g transform="translate(284 38)">
+    <rect class="card" x="0" y="10" width="62" height="50" rx="10" stroke-width="2"/>
+    <g class="accs" fill="none" stroke-width="4" stroke-linecap="round">
+      <path d="M16 38l-3 3a6 6 0 0 1-8.5-8.5l6-6a6 6 0 0 1 8.5 0"/>
+      <path d="M24 30l3-3a6 6 0 0 1 8.5 8.5l-6 6a6 6 0 0 1-8.5 0"/>
+    </g>
+    <text class="dot" x="47" y="43" text-anchor="middle" font-family="ui-monospace,monospace" font-size="16" font-weight="700">#</text>
+    <!-- timer badge -->
+    <circle class="gold" cx="56" cy="12" r="12"/>
+    <circle class="wht" cx="56" cy="12" r="8"/>
+    <path d="M56 7v5l3 2" stroke="#b07d0c" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </g>
+</svg>

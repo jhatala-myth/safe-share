@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Safe Share – udostępnij sekret</title>
+  <link rel="icon" href="/static/img/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="apple-touch-icon" href="/static/img/apple-touch-icon.png">
+  <link rel="manifest" href="/static/manifest.json">
+  <meta name="theme-color" content="#1f5fd1">
+  <link rel="stylesheet" href="/static/css/style.css" integrity="{{ sri css/style.css }}">
+</head>
+<body data-max-bytes="{{ max_bytes }}">
+<main class="card">
+  <header>
+    <div class="brand"><img src="/static/img/icon.svg" alt="" width="36" height="36"><h1>Safe Share</h1></div>
+    <p class="muted">Jednorazowe, szyfrowane udostępnianie haseł, certyfikatów i kluczy.
+      Dane są szyfrowane w Twojej przeglądarce – serwer nigdy nie widzi ich treści.</p>
+  </header>
+
+  <section id="form-section">
+    <img class="hero" src="/static/img/create.svg" width="360" height="150"
+         alt="Sekret jest szyfrowany w przeglądarce i zamieniany w jednorazowy link z czasem ważności">
+    <div class="tabs" role="tablist">
+      <button type="button" class="tab active" id="tab-text" role="tab" aria-selected="true">Tekst</button>
+      <button type="button" class="tab" id="tab-file" role="tab" aria-selected="false">Plik</button>
+    </div>
+
+    <div id="pane-text">
+      <label for="secret-text">Sekret (hasło, klucz PEM, token…)</label>
+      <textarea id="secret-text" rows="10" spellcheck="false" autocomplete="off" autocapitalize="off"></textarea>
+    </div>
+
+    <div id="pane-file" hidden>
+      <label for="secret-file">Plik (np. .p12, .pfx, .pem, .key)</label>
+      <input type="file" id="secret-file">
+      <p class="muted small" id="file-info"></p>
+    </div>
+
+    <div class="row">
+      <div>
+        <label for="ttl">Ważność linku</label>
+        <select id="ttl">{{ ttl_options }}</select>
+      </div>
+      <div>
+        <label for="passphrase">Hasło dodatkowe (opcjonalnie)</label>
+        <input type="password" id="passphrase" autocomplete="new-password" placeholder="przekaż innym kanałem">
+      </div>
+    </div>
+
+    <button type="button" id="create-btn" class="primary">Utwórz jednorazowy link</button>
+    <p id="create-error" class="error" role="alert" hidden></p>
+  </section>
+
+  <section id="result-section" hidden>
+    <h2>Link gotowy</h2>
+    <p class="muted">Link działa <strong>jeden raz</strong> i wygasa <span id="expires-at"></span>.
+      Skopiuj go teraz – nie będzie można go wyświetlić ponownie.</p>
+    <div class="copy-row">
+      <input type="text" id="share-link" readonly>
+      <button type="button" id="copy-btn">Kopiuj</button>
+    </div>
+    <p id="pass-note" class="warn" hidden>Sekret jest chroniony hasłem dodatkowym – przekaż je odbiorcy innym kanałem (telefon, SMS).</p>
+
+    <details>
+      <summary>Unieważnij link</summary>
+      <p class="muted small">Jeśli link trafił do niewłaściwej osoby, możesz go usunąć przed odczytem.</p>
+      <button type="button" id="revoke-btn" class="danger">Usuń sekret teraz</button>
+      <p id="revoke-status" class="small" role="status"></p>
+    </details>
+
+    <button type="button" id="new-btn">Udostępnij kolejny sekret</button>
+  </section>
+</main>
+<footer class="muted small">AES-256-GCM · klucz tylko we fragmencie URL (#) · odczyt jednorazowy</footer>
+<script src="/static/js/crypto.js" integrity="{{ sri js/crypto.js }}"></script>
+<script src="/static/js/create.js" integrity="{{ sri js/create.js }}"></script>
+</body>
+</html>

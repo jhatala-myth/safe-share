@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 150" role="img" aria-label="Zapieczętowany sekret do jednorazowego odczytu">
+  <style>
+    .bg{fill:#eaf1fd}.env{fill:#fff;stroke:#c9d6ee}.flap{fill:#f3f7fe;stroke:#c9d6ee}.acc{fill:#1f5fd1}
+    .wht{fill:#fff}.spark{fill:#f2b632}.soft{fill:#d6e3fb}.txt{fill:#1f5fd1}.seam{stroke:#c9d6ee}
+    @media (prefers-color-scheme: dark){
+      .bg{fill:#1b2333}.env{fill:#232a36;stroke:#3a4558}.flap{fill:#29313f;stroke:#3a4558}.acc{fill:#5b8ff0}
+      .wht{fill:#e6e9ee}.soft{fill:#2a3650}.txt{fill:#7ea6f5}.seam{stroke:#3a4558}
+    }
+  </style>
+  <rect class="bg" x="0" y="8" width="360" height="134" rx="18"/>
+  <circle class="soft" cx="180" cy="78" r="58"/>
+  <!-- envelope -->
+  <g transform="translate(118 40)">
+    <rect class="env" x="0" y="0" width="124" height="80" rx="10" stroke-width="2"/>
+    <path class="flap" d="M2 6l60 42 60-42" stroke-width="2" stroke-linejoin="round"/>
+    <path class="seam" d="M2 78l44-34M122 78l-44-34" fill="none" stroke-width="2"/>
+    <!-- wax seal with lock -->
+    <circle class="acc" cx="62" cy="50" r="19"/>
+    <path d="M55 49v-4a7 7 0 0 1 14 0v4" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+    <rect class="wht" x="52" y="48" width="20" height="13" rx="3"/>
+    <circle class="acc" cx="62" cy="54" r="2"/>
+  </g>
+  <!-- "1x" badge -->
+  <g transform="translate(246 30)">
+    <circle class="spark" cx="0" cy="0" r="17"/>
+    <text x="0" y="5.5" text-anchor="middle" font-family="system-ui,sans-serif" font-size="15" font-weight="800" fill="#5a3d00">1×</text>
+  </g>
+  <!-- sparkles -->
+  <path class="spark" d="M92 46l1.8 5 5 1.8-5 1.8-1.8 5-1.8-5-5-1.8 5-1.8z"/>
+  <path class="spark" d="M268 104l1.3 3.6 3.6 1.3-3.6 1.3-1.3 3.6-1.3-3.6-3.6-1.3 3.6-1.3z"/>
+  <path class="spark" d="M100 108l1 2.8 2.8 1-2.8 1-1 2.8-1-2.8-2.8-1 2.8-1z"/>
+</svg>
